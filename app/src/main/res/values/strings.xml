@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">EduTrash</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_signup">Sign Up</string>
+    <string name="title_activity_detail">Detail</string>
+    <string name="see_more">See More</string>
+    <string name="category_image">Category Image</string>
+    <string name="hello_blank_fragment">Hello Blank Fragment</string>
+    <string name="category_title">"let's get to know the categories of waste"</string>
+</resources>

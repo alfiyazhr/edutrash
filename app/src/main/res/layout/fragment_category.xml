@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragment.CategoryFragment"
+    android:background="@color/base_color">
+
+    <TextView
+        android:id="@+id/tvCategoryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/category_title"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary_dark" />
+
+    <ListView
+        android:id="@+id/listViewCategories"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tvCategoryTitle"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="16dp"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp" />
+</RelativeLayout>
