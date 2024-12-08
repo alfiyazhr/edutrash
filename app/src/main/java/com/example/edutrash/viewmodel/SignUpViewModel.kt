@@ -8,7 +8,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class SignUpViewModel(private val userRepository: UserRepository) : ViewModel() {
+    // mutable state can change
     private val _registerState = MutableStateFlow<Result<String>?>(null)
+    // state that can see in activity
     val registerState : StateFlow<Result<String>?> get() = _registerState
     fun register(username: String, email: String, password: String){
         viewModelScope.launch {

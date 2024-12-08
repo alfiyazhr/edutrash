@@ -2,6 +2,7 @@ package com.example.edutrash.view.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -26,6 +27,7 @@ class SignUpActivity : AppCompatActivity() {
         val email : EditText = findViewById(R.id.etEmail)
         val username : EditText = findViewById(R.id.etUsername)
         val password : EditText = findViewById(R.id.etPassword)
+        val btnSignUp : Button = findViewById(R.id.btnSignUp)
 
         lifecycleScope.launchWhenStarted {
             signUpViewModel.registerState.collect{ result ->
@@ -36,6 +38,10 @@ class SignUpActivity : AppCompatActivity() {
                     result.isSuccess -> {
                         val response = result.getOrNull()
                         Toast.makeText(this@SignUpActivity, response, Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
+                        startActivity(intent)
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                        finish()
                     }
                     result.isFailure -> {
                         val exception = result.exceptionOrNull()
@@ -44,11 +50,11 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
         }
+        
+
 
         binding.btnSignUp.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            signUpViewModel.register(username.toString(), email.toString(), password.toString())
         }
     }
 }

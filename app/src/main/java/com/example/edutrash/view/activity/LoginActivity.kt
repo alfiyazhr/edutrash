@@ -44,6 +44,9 @@ class LoginActivity : AppCompatActivity() {
                     result.isSuccess -> {
                         val response = result.getOrNull()
                         Toast.makeText(this@LoginActivity, "Login Success", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
                     }
                     result.isFailure -> {
                         val exception = result.exceptionOrNull()
