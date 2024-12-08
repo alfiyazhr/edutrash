@@ -7,4 +7,24 @@
     <string name="category_image">Category Image</string>
     <string name="hello_blank_fragment">Hello Blank Fragment</string>
     <string name="category_title">"let's get to know the categories of waste"</string>
+    <string name="image_classifier_failed">Image classification failed</string>
+    <string name="no_image_selected">Please select an image to analyze</string>
+    <string name="result">Analyze Result</string>
+
+    <string-array name="garbage_labels">
+        <item>battery</item>
+        <item>biological</item>
+        <item>brown-glass</item>
+        <item>cardboard</item>
+        <item>clothes</item>
+        <item>green-glass</item>
+        <item>metal</item>
+        <item>paper</item>
+        <item>plastic</item>
+        <item>shoes</item>
+        <item>trash</item>
+        <item>white-glass</item>
+    </string-array>
+
+
 </resources>

@@ -2,6 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +26,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EDUTRASH"
         tools:targetApi="31">
+        <activity
+            android:name=".view.activity.EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.ResultActivity"
+            android:exported="false" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.edutrash.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 
         <activity
             android:name=".view.activity.LaunchActivity"
@@ -20,32 +50,30 @@
             android:theme="@style/Theme.EDUTRASH">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".view.activity.LoginActivity"
+            android:exported="true"
             android:label="@string/title_activity_login"
-            android:theme="@style/Theme.EDUTRASH.NoActionBar"
-            android:exported="true" />
-
+            android:theme="@style/Theme.EDUTRASH.NoActionBar" />
         <activity
             android:name=".view.activity.MainActivity"
             android:exported="true"
             android:label=""
             android:theme="@style/Theme.EDUTRASH" />
-
         <activity
             android:name=".view.activity.SignUpActivity"
+            android:exported="true"
             android:label="@string/title_activity_signup"
-            android:theme="@style/Theme.EDUTRASH.NoActionBar"
-            android:exported="true" />
-
+            android:theme="@style/Theme.EDUTRASH.NoActionBar" />
         <activity
             android:name=".view.activity.DetailActivity"
+            android:exported="true"
             android:label="@string/title_activity_detail"
-            android:theme="@style/Theme.EDUTRASH.NoActionBar"
-            android:exported="true" />
+            android:theme="@style/Theme.EDUTRASH.NoActionBar" />
     </application>
+
 </manifest>
