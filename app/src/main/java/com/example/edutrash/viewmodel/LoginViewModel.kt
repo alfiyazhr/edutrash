@@ -2,20 +2,24 @@ package com.example.edutrash.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.edutrash.api.RetrofitClient
+import com.example.edutrash.api.UserRepository
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class LoginViewModel : ViewModel() {
-    var username: String = ""
-    var password: String = ""
+class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
+    private val _loginState = MutableStateFlow<Result<String>?>(null)
+    val loginState : StateFlow<Result<String>?>get() = _loginState
 
-    fun login() {
+    fun login(email: String, password: String){
         viewModelScope.launch {
-            // Tambahkan logika login di sini
-            // Misalnya, validasi input, panggilan jaringan, dll.
-            if (username.isNotEmpty() && password.isNotEmpty()) {
-                // Proses login berhasil
-            } else {
-                // Tampilkan pesan kesalahan
+            try{
+                val response = userRepository.login(email, password)
+                RetrofitClient.getInstance().setAuthToken(response.token)
+                _loginState.value = Result.success(response.token)
+            }catch(e: Exception){
+                _loginState.value = Result.failure(e)
             }
         }
     }

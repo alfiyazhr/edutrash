@@ -1,4 +1,7 @@
 package com.example.edutrash.model
 
-class User {
-}
+data class User(
+    val id: Int,
+    val username: String,
+    val email: String
+)
