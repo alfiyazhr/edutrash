@@ -29,7 +29,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         val tvUsername: TextView = view.findViewById(R.id.tvUsername)
         val tvEmail: TextView = view.findViewById(R.id.tvEmail)
         val btnLogout: Button = view.findViewById(R.id.btnLogout)
-        val btnEdit: Button = view.findViewById(R.id.btnEdit)
+        val btnEdit: Button = view.findViewById(R.id.btnAbout)
 
         // Mendapatkan data pengguna saat ini
         val currentUser = auth.currentUser
