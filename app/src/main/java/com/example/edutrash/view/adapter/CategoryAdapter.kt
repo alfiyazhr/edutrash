@@ -44,6 +44,8 @@ class CategoryAdapter(private val context: Context, private val categories: List
 
         btnMoreDetails.setOnClickListener {
             val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra("IMAGE_RES_ID", category.imageResId)
+            intent.putExtra("TITLE", category.title)
             intent.putExtra("DETAIL", category.detail)
             context.startActivity(intent)
         }

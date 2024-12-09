@@ -10,6 +10,8 @@
     <string name="image_classifier_failed">Image classification failed</string>
     <string name="no_image_selected">Please select an image to analyze</string>
     <string name="result">Analyze Result</string>
+    <string name="detail_image">Detail Image</string>
+    <string name="result_image">Result Image</string>
 
     <string-array name="garbage_labels">
         <item>battery</item>

@@ -250,18 +250,24 @@ class ScanTrashFragment : Fragment(R.layout.fragment_scan_trash) {
         }
     }
 
-
-
-
-
-    // Menampilkan hasil ke ResultActivity
     private fun showResults(results: List<String>) {
+        // Temukan hasil dengan confidence score tertinggi
+        val highestConfidenceResult = results.maxByOrNull { result ->
+            val confidence = result.substringAfter(":").trim().removeSuffix("%").toFloatOrNull() ?: 0f
+            confidence
+        } ?: "Unknown"
+
+        // Ambil jenis sampah dan confidence score dari hasil dengan confidence score tertinggi
+        val wasteType = highestConfidenceResult.substringBefore(":").trim()
+        val confidenceScore = highestConfidenceResult.substringAfter(":").trim()
+
         val intent = Intent(requireContext(), ResultActivity::class.java).apply {
-            putExtra("RESULT_TEXT", results.joinToString("\n"))
+            putExtra("RESULT_TEXT", "$wasteType: $confidenceScore")
             putExtra("RESULT_IMAGE_URI", photoUri.toString())
         }
         startActivity(intent)
     }
+
 
     // Menampilkan pesan error
     private fun showError(message: String) {
@@ -304,7 +310,6 @@ class ScanTrashFragment : Fragment(R.layout.fragment_scan_trash) {
         matrix.postRotate(degrees.toFloat())
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
     }
-
 
 }
 
