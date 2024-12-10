@@ -46,7 +46,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                         val username = dataSnapshot.child("username").value.toString()
                         tvUsername.text = username
                     } else {
-                        tvUsername.text = "User not found"
+                        tvUsername.text = " User not found"
                     }
                 }
                 .addOnFailureListener {
