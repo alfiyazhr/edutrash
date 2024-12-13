@@ -76,6 +76,11 @@ dependencies {
     implementation("org.mindrot:jbcrypt:0.4")
     implementation("com.google.firebase:firebase-database")
 
+    implementation(libs.glide)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
+
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.exifinterface)

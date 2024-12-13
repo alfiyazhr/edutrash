@@ -54,7 +54,7 @@
         android:id="@+id/btnAbout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="About"
+        android:text="Edit Profile"
         android:layout_marginBottom="8dp"
         android:backgroundTint="@android:color/white"
         android:textColor="@android:color/black"
